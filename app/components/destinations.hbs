@@ -1,17 +1,41 @@
 <YetiTable @data={{this.records}} as |table|>
   <table.header as |header|>
-    <header.column @prop="name">
+    <header.column @prop="data.name">
       {{t "destinations.table.name"}}
     </header.column>
-    <header.column @prop="description">
+    <header.column @prop="data.description">
       {{t "destinations.table.description"}}
     </header.column>
-    <header.column @prop="phone">
+    <header.column @prop="data.phone">
       {{t "destinations.table.phone"}}
     </header.column>
     <header.column>
     </header.column>
   </table.header>
 
-  <table.body/>
+  <table.tbody as | body data |>
+    {{#each data as |record|}}
+      <body.row as |row|>
+        <row.cell>
+          {{record.isEdit}}
+          {{#if record.isEdit}}
+            <input value={{record.data.name}} {{on "input" (action (mut record.data.name) value="target.value")}}>
+          {{else}}
+             {{record.data.name}}
+          {{/if}}
+        </row.cell>
+        <row.cell>
+           {{record.data.description}}
+        </row.cell>
+        <row.cell>
+           {{record.data.phone}}
+        </row.cell>
+        <row.cell>
+          <FaIcon @icon="pencil-alt" {{on "click" (toggle-action "isEdit" record)}} />
+          <FaIcon @icon="undo-alt" {{on "click" (fn this.rollback record)}} />
+        </row.cell>
+      </body.row>
+    {{/each}}
+
+  </table.tbody>
 </YetiTable>
