@@ -1,0 +1,15 @@
+<YetiTable @data={{@destinations}} as |table|>
+  <table.header as |header|>
+    <header.column @prop="name">
+      {{t "destinations.table.name"}}
+    </header.column>
+    <header.column @prop="description">
+      {{t "destinations.table.description"}}
+    </header.column>
+    <header.column @prop="phone">
+      {{t "destinations.table.phone"}}
+    </header.column>
+  </table.header>
+
+  <table.body/>
+</YetiTable>

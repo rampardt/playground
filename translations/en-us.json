@@ -1,0 +1,19 @@
+{
+  "header-menu": {
+    "admin": {
+      "title": "Admin",
+      "menus": {
+        "destination": {
+          "title": "Destinations"
+        }
+      }
+    }
+  },
+  "destinations": {
+    "table": {
+      "name": "Name",
+      "description": "Description",
+      "phone": "Phone"
+    }
+  }
+}
