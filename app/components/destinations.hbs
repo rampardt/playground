@@ -1,4 +1,4 @@
-<YetiTable @data={{@destinations}} as |table|>
+<YetiTable @data={{this.records}} as |table|>
   <table.header as |header|>
     <header.column @prop="name">
       {{t "destinations.table.name"}}
@@ -8,6 +8,8 @@
     </header.column>
     <header.column @prop="phone">
       {{t "destinations.table.phone"}}
+    </header.column>
+    <header.column>
     </header.column>
   </table.header>
 
