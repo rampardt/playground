@@ -1,0 +1,7 @@
+
+.cell-class {
+  @apply text-red-800 hover:text-green-200;
+}
+/*.cell-class:hover {*/
+/*  @apply text-red-200;*/
+/*}*/

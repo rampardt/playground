@@ -12,11 +12,11 @@
     <header.column>
     </header.column>
   </table.header>
-
+  {{#let "text-blue-800 hover:text-red-200" as | cellClass |}}
   <table.tbody as | body data |>
     {{#each data as |record|}}
       <body.row as |row|>
-        <row.cell>
+        <row.cell class="cell-class">
           {{record.isEdit}}
           {{#if record.isEdit}}
             <input value={{record.data.name}} {{on "input" (action (mut record.data.name) value="target.value")}}>
@@ -24,13 +24,13 @@
              {{record.data.name}}
           {{/if}}
         </row.cell>
-        <row.cell>
+        <row.cell class={{cellClass}}>
            {{record.data.description}}
         </row.cell>
-        <row.cell>
+        <row.cell class={{cellClass}}>
            {{record.data.phone}}
         </row.cell>
-        <row.cell>
+        <row.cell class={{cellClass}}>
           <FaIcon @icon="pencil-alt" {{on "click" (toggle-action "isEdit" record)}} />
           <FaIcon @icon="undo-alt" {{on "click" (fn this.rollback record)}} />
         </row.cell>
@@ -38,4 +38,5 @@
     {{/each}}
 
   </table.tbody>
+  {{/let}}
 </YetiTable>
